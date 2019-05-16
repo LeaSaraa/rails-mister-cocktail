@@ -1,0 +1,24 @@
+<h2><%= @cocktail.name %></h2>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @garden.banner_url %>);">
+  <div class="flex-container flex-column">
+    <div class="mb100">
+      <div class="container">
+        <%= link_to '👈 All gardens', cocktails_path, class: 'mb30 inline-block white-text white-text-hover bold-text no-hover-color-change no-underline' %>
+        <div class="flex-container flex-space-btw">
+          <h1><%= @cocktail.name %></h1>
+          <span class="js-banner-typed-text"></span>
+          <%= link_to 'Add a dose to this list', class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row ml0">
+        <% @garden.plants.each do |plant| %>
+          <%= render 'plants/card', plant: plant %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
